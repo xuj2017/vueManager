@@ -1,8 +1,13 @@
 <template>
     <div id="home">
         <headers></headers>
-        <div class="meau">
-            <meau></meau>
+        <div class="content-wrap">
+            <div class="meau-wrap">
+                <meau></meau>
+            </div>
+            <div class="detail-wrap">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
 </template>
@@ -18,9 +23,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .meau{
-        width: 200px;
-       height: 100%;
+    .content-wrap{
+        height: 100%;
+        overflow: hidden;
+        display: table;
+        >div{
+            display: table-cell;
+            &.meau-wrap{
+                width: 250px;
+            }
+        }
     }
     #home{
         width: 100%;
