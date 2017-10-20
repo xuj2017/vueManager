@@ -9,7 +9,7 @@
                             <span>数据管理</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="1-1"> <router-link to="/member">成员列表</router-link></el-menu-item>
+                            <el-menu-item index="1-1" @click="go('/member')">成员列表</el-menu-item>
                         </el-menu-item-group>
                         
                     </el-submenu>
@@ -19,7 +19,7 @@
                     </el-menu-item>
                     <el-menu-item index="3">
                         <i class="el-icon-setting"></i>
-                        <span slot="title">导航三</span>
+                        <span slot="title" :title="hello" :class="{hello}">{{hello}}</span>
                     </el-menu-item>
                 </el-menu>
             </el-col>
@@ -29,12 +29,20 @@
 </template>
 <script>
   export default {
+    data(){
+        return{
+            hello:'world'
+        }
+    },
     methods: {
       handleOpen(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
+      },
+      go(route) {
+          this.$router.push({path:route})
       }
     }
   }

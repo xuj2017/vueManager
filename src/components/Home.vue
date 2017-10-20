@@ -3,7 +3,7 @@
         <headers></headers>
         <div class="content-wrap">
             <div class="meau-wrap">
-                <meau></meau>
+                <meau :name="menu"></meau>
             </div>
             <div class="detail-wrap">
                 <router-view></router-view>
@@ -16,6 +16,12 @@
 import headers from './header/Header'
 import meau from './meau/Meau'
 export default {
+    data (){
+        return{
+            menu:'menus'
+        }
+        
+    },
     components: {
         headers,meau
     }
@@ -24,6 +30,7 @@ export default {
 
 <style lang="scss" scoped>
     .content-wrap{
+        width: 100%;
         height: 100%;
         overflow: hidden;
         display: table;
@@ -31,6 +38,9 @@ export default {
             display: table-cell;
             &.meau-wrap{
                 width: 250px;
+            }
+            &.detail-wrap{
+                padding: 20px;
             }
         }
     }
